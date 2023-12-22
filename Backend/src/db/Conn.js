@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/Registration",{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-    useCreateIndex:true
-}).then(() =>{
-    console.log(`Successfully connected`);
-}).catch((e) =>{
-   console.log(`no connection`);
-})
+mongoose.connect("mongodb+srv://haripriya14022003:haripriya14022003@hari.8d4mvvp.mongodb.net/Registration", {
+    
+}).then(() => {
+    console.log(`Successfully connected to the database`);
+}).catch((error) => {
+    console.error(`Error connecting to the database: ${error.message}`);
+});
