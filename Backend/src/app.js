@@ -5,7 +5,7 @@ const hbs = require("hbs");
 
 require("./db/Conn");
 const Register = require("./models/register")
-const {json} = require("express");
+
 
 const port = process.env.PORT || 3000;
 
