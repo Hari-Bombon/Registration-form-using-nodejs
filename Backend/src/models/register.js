@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const jwt = require('jsonwebtoken');
 
 const employeeSchema = new mongoose.Schema({
     firstname:{
@@ -33,7 +34,9 @@ const employeeSchema = new mongoose.Schema({
     }
 })
 
-//Collection
+userSchema.methods.generateAuthToken = function() {
+    const token = jwt.sign({_id:this_id}.process.env.JWTPRIVATEKEY)
+}
 
 const Register = new mongoose.model("Register", employeeSchema);
 
