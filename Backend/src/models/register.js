@@ -28,7 +28,7 @@ const employeeSchema = new mongoose.Schema({
         type: String,
         required:true
     },
-    confirmpassword: {
+    cpassword: {
         type: String,
         required:true
     }

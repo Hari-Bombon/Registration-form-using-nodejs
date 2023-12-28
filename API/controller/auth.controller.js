@@ -6,7 +6,8 @@ exports.register=async(req,res) => {
         gender: 'required|male|female|Other',
         email:'required|email',
         phoneNumber:'required|minLength:10',
-        password:'required'
+        password:'required',
+        cpassword:'required'
     });
     const matched = await v.check();
     if(!matched){

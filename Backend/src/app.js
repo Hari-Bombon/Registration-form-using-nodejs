@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
     try{
         const password = req.body.password;
-        const  cpassword = req.body.confirmpassword;
+        const  cpassword = req.body.cpassword
 
         if(password === cpassword){
             const registerPerson = new Register({
@@ -43,7 +43,7 @@ app.post("/register", async (req, res) => {
                 email:req.body.email,
                 gender:req.body.gender,
                 password:password,
-                confirmpassword: cpassword,
+                cpassword: cpassword,
                 phone:req.body.phone
                 
             })

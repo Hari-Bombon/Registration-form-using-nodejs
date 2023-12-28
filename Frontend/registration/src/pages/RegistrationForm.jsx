@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../src/style/App.css'
+import {Link} from 'react-router-dom'
 
 
 const RegistrationForm = () => {
@@ -60,7 +61,7 @@ const RegistrationForm = () => {
             required
           />
           </label>
-
+          <br/>
           <label>
           Gender:
           <select
@@ -114,11 +115,11 @@ const RegistrationForm = () => {
             required
           />
         </label>
-
+      <br/>
         <label>
          Confirm Password:
           <input
-            type="confirm-password"
+            type="cpassword"
             name="cpassword"
             value={formData.cpassword}
             onChange={handleChange}
@@ -129,8 +130,9 @@ const RegistrationForm = () => {
         <br />
 
         <button type="submit">Register</button>
-        <p>Already have an account</p>
-        <button>Login</button>
+        <Link to ='/login'>
+        <p>Already have an account? login here</p>
+        </Link>
       </form>
     </div>
   );
