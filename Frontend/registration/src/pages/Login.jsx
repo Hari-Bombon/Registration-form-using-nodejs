@@ -29,7 +29,7 @@ const LoginForm = () => {
           toast.error(response.data.error);
         } else {
           toast.success('Login successful!')
-          navigate('/dashboard');
+          navigate('/Sidebar');
         }
       })
       .catch((error) => {
