@@ -10,7 +10,7 @@ const Home = () => {
       <p>Your trusted source for global news and media.</p>
 
       <div className="buttons-container">
-        <Link to="/registrationform">
+        <Link to="/register">
           <button className="signup-button">Register</button>
         </Link>
       </div>

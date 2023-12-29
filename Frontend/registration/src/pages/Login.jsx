@@ -1,14 +1,16 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-
-
+import { Link , useNavigate} from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({
-    name:'',
+    name: '',
     email: '',
     password: '',
   });
 
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLoginData({
@@ -19,25 +21,37 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login Data:', loginData);
-  
+
+    axios.post("http://localhost:8000/Login", loginData)
+      .then((response) => {
+        console.log(response);
+        if (response.data.error) {
+          toast.error(response.data.error);
+        } else {
+          toast.success('Login successful!')
+          navigate('/dashboard');
+        }
+      })
+      .catch((error) => {
+        toast.error('An error occurred. Please try again.');
+        console.error(error);
+      });
   };
 
   return (
-   <>
+    <>
       <h2>Login Form</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
           <input
-          type="name"
-          name="name"
-          value={loginData.name}
-          onChange={handleChange}
-          required
+            type="name"
+            name="name"
+            value={loginData.name}
+            onChange={handleChange}
+            required
           />
-          <br/>
-
+          <br />
         </label>
         <label>
           Email:
@@ -50,7 +64,6 @@ const LoginForm = () => {
           />
         </label>
         <br />
-
         <label>
           Password:
           <input
@@ -61,11 +74,14 @@ const LoginForm = () => {
             required
           />
         </label>
-        <br/>
-    
+        <br />
         <button type="submit">Login</button>
+        <Link to='/Register'>
+          <p>New User? Register here</p>
+        </Link>
       </form>
- </>
+      <Toaster />
+    </>
   );
 };
 
