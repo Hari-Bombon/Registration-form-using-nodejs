@@ -80,7 +80,7 @@ const LoginForm = () => {
           <p>New User? Register here</p>
         </Link>
 
-        <Link to='/Forgotpassword'>
+        <Link to='/forgotpassword'>
           <p>Forgot password?</p>
         </Link>
       </form>

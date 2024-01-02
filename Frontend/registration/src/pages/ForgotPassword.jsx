@@ -5,9 +5,9 @@ const Forgotpassword = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleForgotpassword = async () => {
+  const handleforgotpassword = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/Forgotpassword', { email });
+      const response = await axios.post('http://localhost:8000/forgotpassword', { email });
       setMessage(response.data.message);
     } catch (error) {
         setMessage('Error requesting password reset');
@@ -22,7 +22,7 @@ const Forgotpassword = () => {
         Email:
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       </label>
-      <button onClick={handleForgotpassword}>Request Password Reset</button>
+      <button onClick={handleforgotpassword}>Request Password Reset</button>
       <p>{message}</p>
     </div>
   );
