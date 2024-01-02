@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link , useNavigate} from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({
@@ -78,6 +78,10 @@ const LoginForm = () => {
         <button type="submit">Login</button>
         <Link to='/Register'>
           <p>New User? Register here</p>
+        </Link>
+
+        <Link to='/Forgotpassword'>
+          <p>Forgot password?</p>
         </Link>
       </form>
       <Toaster />

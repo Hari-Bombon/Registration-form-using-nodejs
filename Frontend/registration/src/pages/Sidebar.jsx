@@ -1,45 +1,43 @@
-import React, { useState, useRef } from "react";
-import "../style/App.css";
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MdMenu, MdExpandMore } from 'react-icons/md';
+
 const menuItems = [
   {
-    name: "Home",
-    icon: "",
+    name: 'Profile',
+    icon: '',
   },
   {
-    name: "Settings",
-    icon: "",
-    items: ["Display", "Editor", "Theme", "Interface"],
+    name: 'Settings',
+    icon: '',
+    items: ['Display', 'Editor', 'Theme', 'Interface'],
   },
   {
-    name: "Create",
-    icon: "",
-    items: ["Article", "Document", "Report"],
+    name: 'Create',
+    icon: '',
+    items: ['Article', 'Document', 'Report'],
   },
   {
-    name: "Account",
-    icon: "",
-    items: ["Dashboard", "Logout"],
+    name: 'Account',
+    icon: '',
+    items: ['Dashboard', 'Logout'],
   },
   {
-    name: "Product",
-    icon: "",
+    name: 'Product',
+    icon: '',
   },
   {
-    name: "Favourites",
-    icon: "favoruite",
+    name: 'Favourites',
+    icon: 'favoruite',
   },
 ];
 
-const Icon = ({ icon }) => (
-  <span className="material-symbols-outlined">{}</span>
-);
+const Icon = ({ icon }) => <span className="material-symbols-outlined"></span>;
 
 const CustomIcon = ({ icon }) => {
   const icons = {
     menu: <MdMenu />,
     expand_more: <MdExpandMore />,
-
   };
 
   return icons[icon] || null;
@@ -47,7 +45,6 @@ const CustomIcon = ({ icon }) => {
 
 const NavHeader = () => (
   <header className="sidebar-header">
-   
     <span>Admin</span>
   </header>
 );
@@ -56,7 +53,7 @@ const NavButton = ({ onClick, name, icon, isActive, hasSubNav }) => (
   <button
     type="button"
     onClick={() => onClick(name)}
-    className={isActive ? "active" : ""}
+    className={isActive ? 'active' : ''}
   >
     {icon && <Icon icon={icon} />}
     <span>{name}</span>
@@ -72,7 +69,7 @@ const SubMenu = ({ item, activeItem, handleClick }) => {
 
   return (
     <div
-      className={`sub-nav ${isSubNavOpen(item.name, item.items) ? "open" : ""}`}
+      className={`sub-nav ${isSubNavOpen(item.name, item.items) ? 'open' : ''}`}
       style={{
         height: !isSubNavOpen(item.name, item.items)
           ? 0
@@ -94,10 +91,16 @@ const SubMenu = ({ item, activeItem, handleClick }) => {
 };
 
 const Sidebar = () => {
-  const [activeItem, setActiveItem] = useState("");
+  const [activeItem, setActiveItem] = useState('');
+  const navigate = useNavigate();
 
   const handleClick = (item) => {
-    setActiveItem(item !== activeItem ? item : "");
+    setActiveItem(item !== activeItem ? item : '');
+
+    // Navigate to the profile page when the "Profile" button is clicked
+    if (item === 'Profile') {
+      navigate('/profile');
+    }
   };
 
   return (

@@ -5,6 +5,9 @@ import Home from '../src/pages/Home';
 import LoginForm from '../src/pages/Login';
 import RegistrationForm from '../src/pages/RegistrationForm';
 import Sidebar from '../src/pages/Sidebar';
+import Forgotpassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+import Profile from './pages/profile';
 
 
 
@@ -21,6 +24,11 @@ function App() {
         <Route path='/Login' element={<LoginForm />} />
         <Route path="/Register" element={<RegistrationForm />} />
         <Route path='/Sidebar' element={<Sidebar />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/Forgotpassword' element={<Forgotpassword />} />
+        <Route path='/Resetpassword' element={<ResetPassword />} />
+
+      
 
 
   </Routes>

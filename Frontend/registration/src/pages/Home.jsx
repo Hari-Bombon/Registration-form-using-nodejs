@@ -12,6 +12,7 @@ const Home = () => {
           <button className="signup-button">Register</button>
         </Link>
       </div>
+      
     </div>
   );
 };

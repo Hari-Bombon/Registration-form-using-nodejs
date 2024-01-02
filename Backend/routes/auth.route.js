@@ -1,15 +1,17 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const cors = require('cors');
-const authController = require('./../API/controller/auth.controller');
+const authController = require('../API/controller/auth.controller');
 
 router.use(
   cors({
     credentials: true,
-    origin: 'https://localhost:3001',
+    origin: 'https://localhost:3000',
   })
 );
 
-router.get('/', authController.login); // Assuming login is a function in authController
 router.post('/register', authController.register);
+router.post('/Forgotpassword', authController.Forgotpassword);
+router.post('/Resetpassword', authController.Resetpassword);
 
 module.exports = router;
